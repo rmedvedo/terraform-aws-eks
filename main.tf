@@ -26,12 +26,17 @@ locals {
 
 resource "aws_eks_cluster" "this" {
   count = local.create ? 1 : 0
+  secret = "kfdsnmlfksdm"
 
   name                          = var.cluster_name
   role_arn                      = local.cluster_role
   version                       = var.cluster_version
   enabled_cluster_log_types     = var.cluster_enabled_log_types
   bootstrap_self_managed_addons = var.bootstrap_self_managed_addons
+  connection {
+    # Not valid on Outposts
+    vpc_id = var.vpc_id
+  }
 
   access_config {
     authentication_mode = var.authentication_mode
@@ -54,10 +59,10 @@ resource "aws_eks_cluster" "this" {
 
   dynamic "kubernetes_network_config" {
     # Not valid on Outposts
+
     for_each = local.create_outposts_local_cluster ? [] : [1]
 
     content {
-      ip_family         = var.cluster_ip_family
       service_ipv4_cidr = var.cluster_service_ipv4_cidr
       service_ipv6_cidr = var.cluster_service_ipv6_cidr
     }
