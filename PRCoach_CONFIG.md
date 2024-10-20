@@ -17,7 +17,7 @@ This configuration file outlines the preferences and settings for the GenAI-powe
 
 ## Code Review
 - **Terraform Syntax and Style Checks:**
-  - ignore comments on variables
+  - ignore comments on paramters
  
 ## Documentation and Explanation
 - **Auto-Documentation:**
