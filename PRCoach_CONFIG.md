@@ -17,9 +17,7 @@ This configuration file outlines the preferences and settings for the GenAI-powe
 
 ## Code Review
 - **Terraform Syntax and Style Checks:**
-  - Review all content of the PR for Terraform syntax and style and add a comment to the PR with results.
-  - Use this file for style checks: https://github.com/<User's_Repo>/STYLE_GUIDE.md (or default to https://developer.hashicorp.com/terraform/language/style)
-  - Present any findings as a comment against the PR in text form, and also create a code diff with a committable suggestion.
+  - ignore comments on variables
  
 ## Documentation and Explanation
 - **Auto-Documentation:**
